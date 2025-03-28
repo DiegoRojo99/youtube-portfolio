@@ -44,7 +44,7 @@ const styles = {
     borderRadius: '8px',
     padding: '16px',
     textAlign: 'center' as const,
-    minWidth: '256px',
+    minWidth: '320px',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     backgroundColor: '#fff',
   },
@@ -52,6 +52,8 @@ const styles = {
     width: 'auto',
     height: '96px',
     margin: '0 auto 16px auto',
+    boxShadow: '0 11px 14px 0 rgba(255, 25, 0, 0.51)',
+    borderRadius: '32px',
   },
   followers: {
     fontSize: '18px',
