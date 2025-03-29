@@ -1,6 +1,15 @@
 import { NextResponse } from 'next/server';
 
-let cachedStats: any = null;
+type TikTokStats = {
+  followingCount: number;
+  followerCount: number;
+  heartCount: number;
+  videoCount: number;
+  diggCount: number;
+  heart: number;
+};
+
+let cachedStats: TikTokStats | null = null;
 let lastFetchTime: number | null = null;
 const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
