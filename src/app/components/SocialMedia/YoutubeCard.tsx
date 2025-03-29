@@ -38,14 +38,19 @@ const YoutubeCard: React.FC = () => {
     return <div>Failed to load YouTube stats</div>;
   }
 
+  const statsMap = new Map<string, number>([
+    ['Seguidores', stats.subscriberCount],
+    ['Visualizaciones', stats.viewCount],
+    ['Videos', stats.videoCount],
+  ]);
+
   return (
     <SocialMediaCard
       logo="/assets/youtube-icon.png"
-      followers={stats.subscriberCount}
-      views={stats.viewCount}
       link="https://www.youtube.com/@santimercadal"
       username="@santimercadal"
       backgroundColor="#FF0000"
+      stats={statsMap}
     />
   );
 };

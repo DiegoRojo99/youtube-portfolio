@@ -3,14 +3,13 @@ import './SocialMedia.css';
 
 interface SocialMediaCardProps {
   logo: string;
-  followers: number;
-  views: number;
   username: string;
   link: string;
   backgroundColor: string;
+  stats: Map<string, number>;
 }
 
-const SocialMediaCard: React.FC<SocialMediaCardProps> = ({ logo, followers, views, username, link, backgroundColor }) => {
+const SocialMediaCard: React.FC<SocialMediaCardProps> = ({ logo, stats, username, link, backgroundColor }) => {
   return (
     <div className="social-media-card">
       <div className="card-inner">
@@ -18,8 +17,13 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = ({ logo, followers, view
           <img src={logo} alt="Social Media Logo" className="social-media-logo" />
         </div>
         <div className="card-back" style={{backgroundColor: backgroundColor}}>
-          <p><span>Seguidores:</span> {followers}</p>
-          <p><span>Visualizaciones:</span> {views}</p>
+          {
+            Array.from(stats).map(([key, value]) => (
+              <p key={key}>
+                <span>{key}:</span> {value}
+              </p>
+            ))
+          }
         </div>
       </div>
     </div>
