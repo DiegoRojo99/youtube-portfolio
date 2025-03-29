@@ -1,6 +1,6 @@
 .social-media-card {
-  width: 200px;
-  height: 100px;
+  width: 256px;
+  height: 128px;
   perspective: 1000px;
   margin: 20px;
 }

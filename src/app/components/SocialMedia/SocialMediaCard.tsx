@@ -18,8 +18,8 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = ({ logo, followers, view
           <img src={logo} alt="Social Media Logo" className="social-media-logo" />
         </div>
         <div className="card-back" style={{backgroundColor: backgroundColor}}>
-          <p><span>Followers:</span> {followers}</p>
-          <p><span>Views:</span> {views}</p>
+          <p><span>Seguidores:</span> {followers}</p>
+          <p><span>Visualizaciones:</span> {views}</p>
         </div>
       </div>
     </div>
