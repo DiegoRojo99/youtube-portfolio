@@ -20,13 +20,13 @@ export default function Hero() {
         </div>
         <div className="absolute bottom-4 right-4 flex gap-2 z-10">
           <a href="https://www.youtube.com/@santimercadal" target="_blank" className="text-white my-auto">
-            <Image src="/youtube-icon.png" alt="YouTube" width={24} height={24} />
+            <Image src="/assets/youtube-icon.png" alt="YouTube" width={24} height={24} />
           </a>
           <a href="https://tiktok.com/@smercadal" target="_blank" className="text-white">
-            <Image src="/tiktok-icon.svg" alt="TikTok" width={24} height={24} />
+            <Image src="/assets/tiktok-icon.svg" alt="TikTok" width={24} height={24} />
           </a>
           <a href="https://www.instagram.com/santimercadal" target="_blank" className="text-white">
-            <Image src="/instagram-icon.png" alt="Instagram" width={24} height={24} />
+            <Image src="/assets/instagram-icon.png" alt="Instagram" width={24} height={24} />
           </a>
         </div>
       </section>
