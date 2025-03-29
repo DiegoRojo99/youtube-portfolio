@@ -1,5 +1,6 @@
 import React from 'react';
 import './SocialMedia.css';
+import Image from 'next/image';
 
 interface SocialMediaCardProps {
   logo: string;
@@ -9,12 +10,18 @@ interface SocialMediaCardProps {
   stats: Map<string, number>;
 }
 
-const SocialMediaCard: React.FC<SocialMediaCardProps> = ({ logo, stats, username, link, backgroundColor }) => {
+const SocialMediaCard: React.FC<SocialMediaCardProps> = ({ logo, stats, backgroundColor }) => {
   return (
     <div className="social-media-card">
       <div className="card-inner">
-        <div className="card-front">
-          <img src={logo} alt="Social Media Logo" className="social-media-logo" />
+        <div className="card-front" style={{backgroundColor: backgroundColor}}>
+          <Image
+            src={logo}
+            alt="Social Media Logo"
+            className="social-media-logo"
+            width={100}
+            height={100}
+          />
         </div>
         <div className="card-back" style={{backgroundColor: backgroundColor}}>
           {
