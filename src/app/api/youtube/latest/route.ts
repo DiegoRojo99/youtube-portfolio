@@ -45,6 +45,10 @@ type videoDetailsItem = {
   };
 };
 
+let latestVideo: videoDetailsItem | null = null;
+let lastVideoFetchTime: number | null = null;
+const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
 // Helper function to parse YouTube duration (ISO 8601) to seconds
 function parseDuration(duration: string): number {
   const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
@@ -69,14 +73,20 @@ function isShortVideo(video: videoDetailsItem): boolean {
 }
 
 export async function GET() {
-  if (!YOUTUBE_API_KEY || !YOUTUBE_CHANNEL_ID) {
-    return NextResponse.json(
-      { error: 'Missing YOUTUBE_API_KEY or YOUTUBE_CHANNEL_ID in environment variables' },
-      { status: 500 }
-    );
-  }
-
   try {
+    // Return cached data if it's still valid
+    const now = Date.now();
+    if (latestVideo && lastVideoFetchTime && now - lastVideoFetchTime < CACHE_DURATION) {
+      return NextResponse.json(latestVideo, { status: 200 });
+    }
+
+    if (!YOUTUBE_API_KEY || !YOUTUBE_CHANNEL_ID) {
+      return NextResponse.json(
+        { error: 'Missing YOUTUBE_API_KEY or YOUTUBE_CHANNEL_ID in environment variables' },
+        { status: 500 }
+      );
+    }
+
     // First, search for videos
     const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&part=snippet,id&order=date&maxResults=10&type=video`;
     const searchResponse = await fetch(searchUrl);
@@ -122,6 +132,10 @@ export async function GET() {
         { status: 404 }
       );
     }
+
+    // Cache the latest video
+    latestVideo = regularVideos[0];
+    lastVideoFetchTime = now;
 
     // Return the latest non-Short video
     return NextResponse.json(regularVideos[0]);
