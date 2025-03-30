@@ -60,13 +60,25 @@ const LatestYouTubeVideo: React.FC = () => {
 
   return (
     <div className="bg-black text-white py-8 px-4 shadow-md flex flex-col items-center justify-center">
-      <Image
-        src={video.snippet.thumbnails.maxres.url}
-        alt={video.snippet.title}
-        width={video.snippet.thumbnails.maxres.width}
-        height={video.snippet.thumbnails.maxres.height}
-        className='rounded-lg'
-      />
+      {
+        video.snippet.thumbnails.maxres ? (
+          <Image
+            src={video.snippet.thumbnails.maxres.url}
+            alt={video.snippet.title}
+            width={video.snippet.thumbnails.maxres.width}
+            height={video.snippet.thumbnails.maxres.height}
+            className='rounded-lg'
+          />
+        ) : (
+          <Image
+            src={video.snippet.thumbnails.high.url}
+            alt={video.snippet.title}
+            width={video.snippet.thumbnails.high.width}
+            height={video.snippet.thumbnails.high.height}
+            className='rounded-lg'
+          />
+        )
+      }
       <h2 className="pt-2 text-lg sm:text-2xl md:text-3xl font-bold mt-4">{video.snippet.title.toLocaleUpperCase()}</h2>
       <a
         href={`https://www.youtube.com/watch?v=${video.id}`}
