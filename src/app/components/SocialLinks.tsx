@@ -2,6 +2,7 @@
 import React from 'react';
 import YoutubeCard from './SocialMedia/YoutubeCard';
 import TikTokCard from './SocialMedia/TikTokCard';
+import InstaCard from './SocialMedia/InstaCard';
 
 const SocialLinks: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const SocialLinks: React.FC = () => {
       <div className="flex flex-wrap justify-center mt-4 mb-8">
         <YoutubeCard />
         <TikTokCard />
+        <InstaCard />
       </div>
     </div>
   );
