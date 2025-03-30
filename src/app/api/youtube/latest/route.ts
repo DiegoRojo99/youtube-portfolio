@@ -3,6 +3,48 @@ import { NextResponse } from 'next/server';
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 const YOUTUBE_CHANNEL_ID = process.env.YOUTUBE_CHANNEL_ID;
 
+type searchDataItem = {
+  id: { videoId: string };
+  snippet: {
+    publishedAt: string;
+    channelId: string;
+    title: string;
+    description: string;
+    thumbnails: {
+      default: { url: string; width: number; height: number };
+      medium: { url: string; width: number; height: number };
+      high: { url: string; width: number; height: number };
+      standard?: { url: string; width: number; height: number };
+      maxres?: { url: string; width: number; height: number };
+    };
+  };
+};
+
+type videoDetailsItem = {
+  id: string;
+  snippet: {
+    publishedAt: string;
+    channelId: string;
+    title: string;
+    description: string;
+    thumbnails: {
+      default: { url: string; width: number; height: number };
+      medium: { url: string; width: number; height: number };
+      high: { url: string; width: number; height: number };
+      standard?: { url: string; width: number; height: number };
+      maxres?: { url: string; width: number; height: number };
+    };
+  };
+  contentDetails: {
+    duration: string;
+    dimension: string;
+    definition: string;
+    caption: string;
+    licensedContent: boolean;
+    projection: string;
+  };
+};
+
 // Helper function to parse YouTube duration (ISO 8601) to seconds
 function parseDuration(duration: string): number {
   const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
@@ -13,7 +55,7 @@ function parseDuration(duration: string): number {
 }
 
 // Helper function to check if a video is a Short
-function isShortVideo(video: any): boolean {
+function isShortVideo(video: videoDetailsItem): boolean {
   // Check duration (Shorts are <= 60 seconds)
   if (video.contentDetails?.duration) {
     const durationSec = parseDuration(video.contentDetails.duration);
@@ -56,7 +98,7 @@ export async function GET() {
     }
 
     // Get video IDs for all found videos
-    const videoIds = searchData.items.map((item: any) => item.id.videoId).join(',');
+    const videoIds = searchData.items.map((item: searchDataItem) => item.id.videoId).join(',');
 
     // Get video details (including duration)
     const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API_KEY}&id=${videoIds}&part=snippet,contentDetails`;
@@ -72,7 +114,7 @@ export async function GET() {
     const detailsData = await detailsResponse.json();
 
     // Filter out Shorts and get the latest non-Short video
-    const regularVideos = detailsData.items.filter((video: any) => !isShortVideo(video));
+    const regularVideos = detailsData.items.filter((video: videoDetailsItem) => !isShortVideo(video));
     
     if (regularVideos.length === 0) {
       return NextResponse.json(

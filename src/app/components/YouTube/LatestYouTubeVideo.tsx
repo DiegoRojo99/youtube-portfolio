@@ -36,8 +36,8 @@ const LatestYouTubeVideo: React.FC = () => {
         }
         const data = await response.json();
         setVideo(data);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'An unknown error occurred');
       } finally {
         setLoading(false);
       }
