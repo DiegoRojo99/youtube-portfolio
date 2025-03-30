@@ -47,7 +47,7 @@ type videoDetailsItem = {
 
 let latestVideo: videoDetailsItem | null = null;
 let lastVideoFetchTime: number | null = null;
-const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes in milliseconds
 
 // Helper function to parse YouTube duration (ISO 8601) to seconds
 function parseDuration(duration: string): number {
