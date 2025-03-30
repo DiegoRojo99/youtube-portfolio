@@ -32,7 +32,7 @@ export async function GET() {
     return NextResponse.json(cachedInstaStats, { status: 200 });
   }
   
-  if (process.env.NODE_ENV === 'development' || !process.env.INSTA_RAPIDAPI_KEY) {
+  if (process.env.NODE_ENV === 'development' || !process.env.INSTA_RAPIDAPI_KEY || !process.env.INSTA_USER_ID) {
     return NextResponse.json(sampleData, { status: 200 });
   }
 
