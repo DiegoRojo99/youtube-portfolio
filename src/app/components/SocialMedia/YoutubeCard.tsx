@@ -14,7 +14,7 @@ const YoutubeCard: React.FC = () => {
   useEffect(() => {
     const fetchYoutubeStats = async () => {
       try {
-        const response = await fetch('/api/youtube');
+        const response = await fetch('/api/youtube/stats');
         if (!response.ok) {
           throw new Error('Failed to fetch YouTube stats');
         }
