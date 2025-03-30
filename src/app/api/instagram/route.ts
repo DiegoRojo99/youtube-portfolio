@@ -53,6 +53,11 @@ export async function GET() {
     const result = await response.text();
     const jsonResult = JSON.parse(result);
     const instaStats = jsonResult.data as InstaStats;
+    
+    // Update cache
+    cachedInstaStats = instaStats;
+    lastInstaFetchTime = now;
+
     return NextResponse.json(instaStats, { status: 200 });
   } catch (error) {
     console.error('Error fetching Instagram stats:', error);
