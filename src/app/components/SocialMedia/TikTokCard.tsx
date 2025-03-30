@@ -46,7 +46,7 @@ const TikTokCard: React.FC = () => {
       logo="/assets/tiktok-icon.svg"
       link="https://www.tiktok.com/@smercadal"
       username="@santimercadal"
-      backgroundColor='#000000'
+      background='#000000'
       stats={new Map<string, number>([
         ['Seguidores', stats.followerCount],
         ['Likes', stats.heartCount],

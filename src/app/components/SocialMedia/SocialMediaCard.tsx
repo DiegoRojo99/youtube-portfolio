@@ -6,15 +6,15 @@ interface SocialMediaCardProps {
   logo: string;
   username: string;
   link: string;
-  backgroundColor: string;
+  background: string;
   stats: Map<string, number>;
 }
 
-const SocialMediaCard: React.FC<SocialMediaCardProps> = ({ logo, stats, backgroundColor }) => {
+const SocialMediaCard: React.FC<SocialMediaCardProps> = ({ logo, stats, background }) => {
   return (
     <div className="social-media-card">
       <div className="card-inner">
-        <div className="card-front" style={{backgroundColor: backgroundColor}}>
+        <div className="card-front" style={{background: background}}>
           <Image
             src={logo}
             alt="Social Media Logo"
@@ -23,7 +23,7 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = ({ logo, stats, backgrou
             height={100}
           />
         </div>
-        <div className="card-back" style={{backgroundColor: backgroundColor}}>
+        <div className="card-back" style={{background: background}}>
           {
             Array.from(stats).map(([key, value]) => (
               <p key={key}>

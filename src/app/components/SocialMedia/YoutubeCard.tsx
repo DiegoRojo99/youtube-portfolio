@@ -49,7 +49,7 @@ const YoutubeCard: React.FC = () => {
       logo="/assets/youtube-icon.png"
       link="https://www.youtube.com/@santimercadal"
       username="@santimercadal"
-      backgroundColor="#FF0000"
+      background="#FF0000"
       stats={statsMap}
     />
   );
