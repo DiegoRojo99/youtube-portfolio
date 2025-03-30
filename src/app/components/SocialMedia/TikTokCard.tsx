@@ -34,7 +34,15 @@ const TikTokCard: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <SocialMediaCard
+        logo="/assets/tiktok-icon.svg"
+        link="https://www.tiktok.com/@smercadal"
+        username="@santimercadal"
+        background='#000000'
+        stats={new Map<string, number>([])}
+      />
+    );
   }
 
   if (!stats) {

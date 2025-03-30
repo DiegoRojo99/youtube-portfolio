@@ -34,7 +34,15 @@ const InstaCard: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <SocialMediaCard
+        logo="/assets/instagram-icon.png"
+        link="https://www.instagram.com/santimercadal"
+        username="@santimercadal"
+        background='linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7)'
+        stats={new Map<string, number>([])}
+      />
+    );
   }
 
   if (!stats) {

@@ -31,7 +31,15 @@ const YoutubeCard: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <SocialMediaCard
+        logo="/assets/youtube-icon.png"
+        link="https://www.youtube.com/@santimercadal"
+        username="@santimercadal"
+        background="#FF0000"
+        stats={new Map<string, number>([])}
+      />
+    );
   }
 
   if (!stats) {
