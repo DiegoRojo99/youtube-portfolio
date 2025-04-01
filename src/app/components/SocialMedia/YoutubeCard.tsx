@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SocialMediaCard from './SocialMediaCard';
-
-interface YoutubeStats {
-  subscriberCount: number;
-  viewCount: number;
-  videoCount: number;
-}
+import { YoutubeStats } from '@/app/types/YouTube';
 
 const YoutubeCard: React.FC = () => {
   const [stats, setStats] = useState<YoutubeStats | null>(null);

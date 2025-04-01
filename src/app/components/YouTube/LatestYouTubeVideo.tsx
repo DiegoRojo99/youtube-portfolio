@@ -1,29 +1,11 @@
 'use client';
+import { YoutubeVideoContentDetails } from '@/app/types/YouTube';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
-interface VideoSnippet {
-  publishedAt: string;
-  channelId: string;
-  title: string;
-  description: string;
-  thumbnails: {
-    default: { url: string; width: number; height: number };
-    medium: { url: string; width: number; height: number };
-    high: { url: string; width: number; height: number };
-    standard: { url: string; width: number; height: number };
-    maxres: { url: string; width: number; height: number };
-  };
-  categoryId?: string;
-}
-
-interface VideoContentDetails {
-  id: string;
-  snippet: VideoSnippet;
-}
 
 const LatestYouTubeVideo: React.FC = () => {
-  const [video, setVideo] = useState<VideoContentDetails | null>(null);
+  const [video, setVideo] = useState<YoutubeVideoContentDetails | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
