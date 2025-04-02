@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SocialMediaCard from './SocialMediaCard';
-
-type InstaStats = {
-  url: string;
-  name: string;
-  image: string;
-  description: string;
-  screenName: string;
-  usersCount: number;
-};
+import { InstaStats } from '@/app/types/Instagram';
 
 const InstaCard: React.FC = () => {
   const [stats, setStats] = useState<InstaStats | null>(null);

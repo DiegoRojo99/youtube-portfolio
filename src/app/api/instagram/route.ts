@@ -1,3 +1,4 @@
+import { InstaStats } from "@/app/types/Instagram";
 import { NextResponse } from "next/server";
 
 const sampleData = {
@@ -10,15 +11,6 @@ const sampleData = {
   screenName: 'santimercadal',
   usersCount: 371,
 }
-
-type InstaStats = {
-  url: string;
-  name: string;
-  image: string;
-  description: string;
-  screenName: string;
-  usersCount: number;
-};
 
 let cachedInstaStats: InstaStats | null = null;
 let lastInstaFetchTime: number | null = null;
