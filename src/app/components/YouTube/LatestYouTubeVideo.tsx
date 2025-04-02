@@ -3,7 +3,6 @@ import { YoutubeVideoContentDetails } from '@/app/types/YouTube';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
-
 const LatestYouTubeVideo: React.FC = () => {
   const [video, setVideo] = useState<YoutubeVideoContentDetails | null>(null);
   const [loading, setLoading] = useState(true);
