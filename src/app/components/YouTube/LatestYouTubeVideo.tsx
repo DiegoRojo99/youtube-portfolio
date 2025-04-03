@@ -2,7 +2,8 @@
 import { YoutubeVideoContentDetails } from '@/app/types/YouTube';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-
+import MonaLisa from '@/app/components/Loaders/MonaLisa';
+  
 const LatestYouTubeVideo: React.FC = () => {
   const [video, setVideo] = useState<YoutubeVideoContentDetails | null>(null);
   const [loading, setLoading] = useState(true);
@@ -28,7 +29,7 @@ const LatestYouTubeVideo: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <MonaLisa />
   }
 
   if (error) {
