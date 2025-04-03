@@ -1,13 +1,5 @@
+import { TikTokStats } from '@/app/types/TikTok';
 import { NextResponse } from 'next/server';
-
-type TikTokStats = {
-  followingCount: number;
-  followerCount: number;
-  heartCount: number;
-  videoCount: number;
-  diggCount: number;
-  heart: number;
-};
 
 let cachedStats: TikTokStats | null = null;
 let lastFetchTime: number | null = null;

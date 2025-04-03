@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SocialMediaCard from './SocialMediaCard';
-
-interface TikTokStats {
-  followingCount: number;
-  followerCount: number;
-  heartCount: number;
-  videoCount: number;
-  diggCount: number;
-  heart: number;
-}
+import { TikTokStats } from '@/app/types/TikTok';
 
 const TikTokCard: React.FC = () => {
   const [stats, setStats] = useState<TikTokStats | null>(null);
