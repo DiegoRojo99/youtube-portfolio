@@ -41,7 +41,8 @@ const LatestYouTubeVideo: React.FC = () => {
   }
 
   return (
-    <div className="bg-black text-white py-8 px-4 shadow-md flex flex-col items-center justify-center">
+    <div className="bg-black text-white shadow-md flex flex-col items-center justify-center m-16 
+    hover:scale-105 transition-transform duration-300 ease-in-out rounded-lg hover:cursor-pointer">
       {
         video.snippet.thumbnails.maxres ? (
           <Image
