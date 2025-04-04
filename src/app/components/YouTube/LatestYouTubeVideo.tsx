@@ -41,37 +41,33 @@ const LatestYouTubeVideo: React.FC = () => {
   }
 
   return (
-    <div className="bg-black text-white shadow-md flex flex-col items-center justify-center m-16 
-    hover:scale-105 transition-transform duration-300 ease-in-out rounded-lg hover:cursor-pointer">
-      {
-        video.snippet.thumbnails.maxres ? (
-          <Image
-            src={video.snippet.thumbnails.maxres.url}
-            alt={video.snippet.title}
-            width={video.snippet.thumbnails.maxres.width}
-            height={video.snippet.thumbnails.maxres.height}
-            className='rounded-lg'
-          />
-        ) : (
-          <Image
-            src={video.snippet.thumbnails.high.url}
-            alt={video.snippet.title}
-            width={video.snippet.thumbnails.high.width}
-            height={video.snippet.thumbnails.high.height}
-            className='rounded-lg'
-          />
-        )
-      }
-      <h2 className="pt-2 text-lg sm:text-2xl md:text-3xl font-bold mt-4">{video.snippet.title.toLocaleUpperCase()}</h2>
-      <a
-        href={`https://www.youtube.com/watch?v=${video.id}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className='mt-4 bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition duration-300 ease-in-out'
-      >
-        Watch on YouTube
+    <a 
+      href={`https://www.youtube.com/watch?v=${video.id}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-black text-white shadow-md flex flex-col items-center justify-center m-16 
+      hover:scale-105 transition-transform duration-300 ease-in-out rounded-lg hover:cursor-pointer">
+        {
+          video.snippet.thumbnails.maxres ? (
+            <Image
+              src={video.snippet.thumbnails.maxres.url}
+              alt={video.snippet.title}
+              width={video.snippet.thumbnails.maxres.width}
+              height={video.snippet.thumbnails.maxres.height}
+              className='rounded-lg'
+            />
+          ) : (
+            <Image
+              src={video.snippet.thumbnails.high.url}
+              alt={video.snippet.title}
+              width={video.snippet.thumbnails.high.width}
+              height={video.snippet.thumbnails.high.height}
+              className='rounded-lg'
+            />
+          )
+        }
+        <h2 className="pt-2 text-lg sm:text-2xl md:text-3xl font-bold mt-4">{video.snippet.title.toLocaleUpperCase()}</h2>
       </a>
-    </div>
   );
 };
 
