@@ -22,7 +22,7 @@ export async function GET(request: Request) {
     }
 
     const data = await response.json();
-    const videos = data.items;
+    const videos: YoutubeSearchDataItem = data.items;
     return NextResponse.json(videos, { status: 200 });
   } catch (error) {
     console.error('Error fetching playlist:', error);
