@@ -2,7 +2,6 @@ import { YoutubeSearchDataItem } from '@/app/types/YouTube';
 import { NextResponse } from 'next/server';
 
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
-const BASE_URL = 'https://www.googleapis.com/youtube/v3/playlistItems';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -14,7 +13,7 @@ export async function GET(request: Request) {
 
   try {
     const response = await fetch(
-      `${BASE_URL}?part=snippet&playlistId=${playlistId}&key=${YOUTUBE_API_KEY}&maxResults=50`
+      `${process.env.YOUTUBE_BASE_URL}playlistItems?part=snippet&playlistId=${playlistId}&key=${YOUTUBE_API_KEY}&maxResults=50`
     );
 
     if (!response.ok) {
