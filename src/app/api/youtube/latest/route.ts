@@ -47,7 +47,7 @@ export async function GET() {
     }
 
     // First, search for videos
-    const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&part=snippet,id&order=date&maxResults=10&type=video`;
+    const searchUrl = `${process.env.YOUTUBE_BASE_URL}/search?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&part=snippet,id&order=date&maxResults=10&type=video`;
     const searchResponse = await fetch(searchUrl);
 
     if (!searchResponse.ok) {
@@ -70,7 +70,7 @@ export async function GET() {
     const videoIds = searchData.items.map((item: YoutubeSearchDataItem) => item.id.videoId).join(',');
 
     // Get video details (including duration)
-    const detailsUrl = `https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API_KEY}&id=${videoIds}&part=snippet,contentDetails`;
+    const detailsUrl = `${process.env.YOUTUBE_BASE_URL}/videos?key=${YOUTUBE_API_KEY}&id=${videoIds}&part=snippet,contentDetails`;
     const detailsResponse = await fetch(detailsUrl);
 
     if (!detailsResponse.ok) {

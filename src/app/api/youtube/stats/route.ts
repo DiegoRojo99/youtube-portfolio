@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
   const YOUTUBE_CHANNEL_ID = process.env.YOUTUBE_CHANNEL_ID;
-  const YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3/channels';
+  const YOUTUBE_API_URL = `${process.env.YOUTUBE_BASE_URL}/channels`;
 
   if (!YOUTUBE_API_KEY) {
     return NextResponse.json({ error: 'YouTube API key is missing' }, { status: 500 });
