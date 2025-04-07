@@ -13,7 +13,7 @@ export async function GET(request: Request) {
 
   try {
     const response = await fetch(
-      `${process.env.YOUTUBE_BASE_URL}playlistItems?part=snippet&playlistId=${playlistId}&key=${YOUTUBE_API_KEY}&maxResults=50`
+      `${process.env.YOUTUBE_BASE_URL}/playlistItems?part=snippet&playlistId=${playlistId}&key=${YOUTUBE_API_KEY}&maxResults=50`
     );
 
     if (!response.ok) {
