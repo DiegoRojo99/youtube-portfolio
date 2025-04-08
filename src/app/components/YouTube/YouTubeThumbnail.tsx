@@ -1,11 +1,19 @@
+'use client';
 import { YoutubeVideoContentDetails } from '@/app/types/YouTube';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import './YouTube.css';
+import YouTubeThumbnailPlayer from './YouTubeThumbnailPlayer';
 
 const YouTubeThumbnail: React.FC<{ video: YoutubeVideoContentDetails }> = ({ video }) => {
+  const [playVideo, setPlayVideo] = useState(false);
+
+  if(playVideo) {
+    return <YouTubeThumbnailPlayer video={video} />;
+  }
+
   return (
-    <a className="latest-video-card" href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer">
+    <div className="latest-video-card" onClick={() => setPlayVideo(true)}>
         {
           video.snippet.thumbnails.maxres ? (
             <Image
@@ -25,7 +33,7 @@ const YouTubeThumbnail: React.FC<{ video: YoutubeVideoContentDetails }> = ({ vid
             />
           )
         }
-    </a>
+    </div>
   );
 };
 
