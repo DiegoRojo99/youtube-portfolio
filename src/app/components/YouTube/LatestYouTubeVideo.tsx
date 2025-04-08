@@ -3,6 +3,7 @@ import { YoutubeVideoContentDetails } from '@/app/types/YouTube';
 import React, { useEffect, useState } from 'react';
 import MonaLisa from '@/app/components/Loaders/MonaLisa';
 import YouTubeThumbnail from './YouTubeThumbnail';
+import './YouTube.css';
   
 const LatestYouTubeVideo: React.FC = () => {
   const [video, setVideo] = useState<YoutubeVideoContentDetails | null>(null);
@@ -41,9 +42,11 @@ const LatestYouTubeVideo: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className='latest-video-section'>
       <YouTubeThumbnail video={video} />
-      <h2 className="pt-2 text-lg sm:text-2xl md:text-3xl font-bold mt-4 mb-8 text-center">{video.snippet.title.toLocaleUpperCase()}</h2>
+      <h2 className="pt-2 text-lg sm:text-2xl md:text-3xl font-bold mt-4 mb-8 text-center">
+        {video.snippet.title.toLocaleUpperCase()}
+      </h2>
     </div>
   );
 };
