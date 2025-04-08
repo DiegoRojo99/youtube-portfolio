@@ -13,7 +13,7 @@ const YouTubeThumbnail: React.FC<{ video: YoutubeVideoContentDetails }> = ({ vid
   }
 
   return (
-    <div className="latest-video-card"onClick={() => setPlayVideo(true)}>
+    <div className="latest-video-card" onClick={() => setPlayVideo(true)}>
         {
           video.snippet.thumbnails.maxres ? (
             <Image
