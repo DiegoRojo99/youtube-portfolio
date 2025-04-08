@@ -1,15 +1,11 @@
 import { YoutubeVideoContentDetails } from '@/app/types/YouTube';
 import Image from 'next/image';
 import React from 'react';
+import './YouTube.css';
 
 const YouTubeThumbnail: React.FC<{ video: YoutubeVideoContentDetails }> = ({ video }) => {
   return (
-    <a 
-      href={`https://www.youtube.com/watch?v=${video.id}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-black text-white shadow-md flex flex-col items-center justify-center mt-16 mx-16 
-      hover:scale-105 transition-transform duration-300 ease-in-out rounded-lg hover:cursor-pointer hover:shadow-lg">
+    <a className="latest-video-card" href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer">
         {
           video.snippet.thumbnails.maxres ? (
             <Image
