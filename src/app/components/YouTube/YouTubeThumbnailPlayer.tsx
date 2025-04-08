@@ -1,8 +1,20 @@
+'use client';
 import { YoutubeVideoContentDetails } from '@/app/types/YouTube';
 import React from 'react';
 import './YouTube.css';
+import MonaLisa from '../Loaders/MonaLisa';
 
 const YouTubeThumbnailPlayer: React.FC<{ video: YoutubeVideoContentDetails }> = ({ video }) => {
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <MonaLisa />;
+  }
   return (
     <div className="video-player">
       <iframe
