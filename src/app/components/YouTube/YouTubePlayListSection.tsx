@@ -2,6 +2,7 @@
 import { YoutubeVideoContentDetails } from '@/app/types/YouTube';
 import React, { useEffect, useState } from 'react';
 import YoutubeVideoCard from './YoutubeVideoCard';
+import './YouTube.css';
 
 const YouTubePlayListSection: React.FC<{playlistId: string, title: string}> = ({playlistId, title}) => {
   const [videos, setVideos] = useState<YoutubeVideoContentDetails[]>([]);
@@ -39,8 +40,11 @@ const YouTubePlayListSection: React.FC<{playlistId: string, title: string}> = ({
 
   return (
     <section className="px-4 py-8 mb-2">
-      <h2 className="text-3xl font-bold mb-4">{title}</h2>
-      <div className="flex gap-4 overflow-x-auto pb-2">
+      <div className='playlist-text'>
+        <h1 className="text-4xl font-bold mb-4">{title}</h1>
+        {/* <p className="mb-4">Explore our curated playlist of videos.</p> */}
+      </div>
+      <div className="playlist-scroll">
         {videos.map((video) => (
           <YoutubeVideoCard key={video.id} video={video} />
         ))}
