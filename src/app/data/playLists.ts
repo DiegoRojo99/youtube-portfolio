@@ -34,4 +34,6 @@ const playLists = [
           "description": "En esta playlist encontrás vlogs y documentales sobre las tradicionales más especiales de España",
       }
   }
-]
+];
+
+export default playLists;
