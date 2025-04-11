@@ -12,11 +12,15 @@ interface YoutubeVideoSnippet {
     maxres?: { url: string; width: number; height: number };
   };
   categoryId?: string;
+  resourceId?: {
+    kind?: string;
+    videoId?: string;
+  },
 }
 
 interface YoutubeVideoContentDetails {
   id: string;
-  snippet: VideoSnippet;
+  snippet: YoutubeVideoSnippet;
 }
 
 interface YoutubeStats {
