@@ -11,6 +11,7 @@ export default function Home() {
       <LatestYouTubeVideo />
       <SocialLinks />
       <YouTubePlayListSection playlistId="PLBCFzf3IR5m7y9nVXGOTKRdIbnhl_U-zf" title="España Oculta" />
+      <YouTubePlayListSection playlistId="PLBCFzf3IR5m6C7H1LZsk1w3rbvqzkSWAv" title="Viajes" />
     </Layout>
   );
 }
