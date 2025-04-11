@@ -109,4 +109,9 @@
   .playlist-section {
     padding: 2rem 0;
   }
+
+  .latest-video-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1vh;
+  }
 }
