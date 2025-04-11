@@ -10,8 +10,18 @@ export default function Home() {
       <Hero />
       <LatestYouTubeVideo />
       <SocialLinks />
-      <YouTubePlayListSection playlistId="PLBCFzf3IR5m7y9nVXGOTKRdIbnhl_U-zf" title="España Oculta" imageUrl="" textColor="white" />
-      <YouTubePlayListSection playlistId="PLBCFzf3IR5m6C7H1LZsk1w3rbvqzkSWAv" title="Viajes" imageUrl="travelPostCards.jpg" textColor="black" />
+      <YouTubePlayListSection 
+        playlistId="PLBCFzf3IR5m7y9nVXGOTKRdIbnhl_U-zf" 
+        title="España Oculta" 
+        imageUrl="" 
+        textColor="white" 
+      />
+      <YouTubePlayListSection 
+        playlistId="PLBCFzf3IR5m6C7H1LZsk1w3rbvqzkSWAv" 
+        title="Viajes" 
+        imageUrl="blue-travel.avif" 
+        textColor="white" 
+      />
     </Layout>
   );
 }
