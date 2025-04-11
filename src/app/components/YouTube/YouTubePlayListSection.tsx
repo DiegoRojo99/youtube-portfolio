@@ -46,7 +46,7 @@ const YouTubePlayListSection: React.FC<YouTubePlayListSectionProps> = ({playlist
 
   return (
     <section
-      className="playlist-section px-4 py-8 mb-2"
+      className="playlist-section mb-2"
       style={{ color: textColor, backgroundImage: `url(${imageUrl})`, backgroundSize: 'contain' }}
     >
       <div className="fade-overlay"></div>
