@@ -47,6 +47,10 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
+.playlist-section {
+  padding: 5rem 0;
+}
+
 .playlist-text {
   max-width: 50%;
   margin-bottom: 3rem;
