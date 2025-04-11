@@ -45,17 +45,25 @@ const YouTubePlayListSection: React.FC<YouTubePlayListSectionProps> = ({playlist
   if (error) return <p>{error}</p>;
 
   return (
-    <section className="playlist-section px-4 py-8 mb-2" style={{ backgroundImage: `url(${imageUrl})`, color: textColor }}>
-      <div className='playlist-text'>
-        <h1 className="text-4xl font-bold mb-4">{title}</h1>
-        {/* <p className="mb-4">Explore our curated playlist of videos.</p> */}
-      </div>
-      <div className="playlist-scroll">
-        {videos.map((video) => (
-          <YoutubeVideoCard key={video.id} video={video} />
-        ))}
+    <section
+      className="playlist-section px-4 py-8 mb-2"
+      style={{ color: textColor, backgroundImage: `url(${imageUrl})`, backgroundSize: 'contain' }}
+    >
+      <div className="fade-overlay"></div>
+
+      <div className="relative z-10">
+        <div className="playlist-text">
+          <h1 className="text-4xl font-bold mb-4">{title}</h1>
+        </div>
+
+        <div className="playlist-scroll">
+          {videos.map((video) => (
+            <YoutubeVideoCard key={video.id} video={video} />
+          ))}
+        </div>
       </div>
     </section>
+
   );
 };
 
