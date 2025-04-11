@@ -4,7 +4,12 @@ import React, { useEffect, useState } from 'react';
 import YoutubeVideoCard from './YoutubeVideoCard';
 import './YouTube.css';
 
-const YouTubePlayListSection: React.FC<{playlistId: string, title: string}> = ({playlistId, title}) => {
+interface YouTubePlayListSectionProps {
+  playlistId: string;
+  title: string;
+  imageUrl: string;
+}
+const YouTubePlayListSection: React.FC<YouTubePlayListSectionProps> = ({playlistId, title, imageUrl}) => {
   const [videos, setVideos] = useState<YoutubeVideoContentDetails[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -39,7 +44,7 @@ const YouTubePlayListSection: React.FC<{playlistId: string, title: string}> = ({
   if (error) return <p>{error}</p>;
 
   return (
-    <section className="px-4 py-8 mb-2">
+    <section className="playlist-section px-4 py-8 mb-2" style={{ backgroundImage: `url(${imageUrl})` }}>
       <div className='playlist-text'>
         <h1 className="text-4xl font-bold mb-4">{title}</h1>
         {/* <p className="mb-4">Explore our curated playlist of videos.</p> */}
