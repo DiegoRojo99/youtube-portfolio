@@ -8,8 +8,9 @@ interface YouTubePlayListSectionProps {
   playlistId: string;
   title: string;
   imageUrl: string;
+  textColor: string;
 }
-const YouTubePlayListSection: React.FC<YouTubePlayListSectionProps> = ({playlistId, title, imageUrl}) => {
+const YouTubePlayListSection: React.FC<YouTubePlayListSectionProps> = ({playlistId, title, imageUrl, textColor}) => {
   const [videos, setVideos] = useState<YoutubeVideoContentDetails[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -44,7 +45,7 @@ const YouTubePlayListSection: React.FC<YouTubePlayListSectionProps> = ({playlist
   if (error) return <p>{error}</p>;
 
   return (
-    <section className="playlist-section px-4 py-8 mb-2" style={{ backgroundImage: `url(${imageUrl})` }}>
+    <section className="playlist-section px-4 py-8 mb-2" style={{ backgroundImage: `url(${imageUrl})`, color: textColor }}>
       <div className='playlist-text'>
         <h1 className="text-4xl font-bold mb-4">{title}</h1>
         {/* <p className="mb-4">Explore our curated playlist of videos.</p> */}
