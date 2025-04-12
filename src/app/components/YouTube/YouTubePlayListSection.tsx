@@ -50,12 +50,12 @@ const YouTubePlayListSection: React.FC<YouTubePlayListSectionProps> = ({playlist
       style={{ color: textColor, backgroundImage: `url(${imageUrl})`, backgroundSize: 'contain' }}
     >
       <div className="fade-overlay"></div>
-
       <div className="relative z-10">
         <div className="playlist-text">
-          <h1 className="text-4xl font-bold mb-4">{title}</h1>
+          <h1 className="text-4xl font-bold mb-4">
+            {title.toLocaleUpperCase()}
+          </h1>
         </div>
-
         <div className="playlist-scroll">
           {videos.map((video) => (
             <YoutubeVideoCard key={video.id} video={video} />
