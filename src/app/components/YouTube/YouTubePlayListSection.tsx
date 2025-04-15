@@ -3,6 +3,7 @@ import { YoutubeVideoContentDetails } from '@/app/types/YouTube';
 import React, { useEffect, useState } from 'react';
 import YoutubeVideoCard from './YoutubeVideoCard';
 import './YouTube.css';
+import ErrorWarning from '../Extras/Error';
 
 interface YouTubePlayListSectionProps {
   playlistId: string;
@@ -42,7 +43,7 @@ const YouTubePlayListSection: React.FC<YouTubePlayListSectionProps> = ({playlist
   }, [playlistId]);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (error) return <ErrorWarning title={error ?? "Test error"} />;
 
   return (
     <section
