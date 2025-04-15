@@ -3,6 +3,7 @@ import { YoutubeVideoContentDetails } from '@/app/types/YouTube';
 import React, { useEffect, useState } from 'react';
 import MonaLisa from '@/app/components/Loaders/MonaLisa';
 import YouTubeThumbnail from './YouTubeThumbnail';
+import ErrorWarning from '@/app/components/Extras/Error';
 import './YouTube.css';
   
 const LatestYouTubeVideo: React.FC = () => {
@@ -34,7 +35,11 @@ const LatestYouTubeVideo: React.FC = () => {
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <div className='latest-video-section'>
+        <ErrorWarning title={error} />
+      </div>      
+    )
   }
 
   if (!video) {
