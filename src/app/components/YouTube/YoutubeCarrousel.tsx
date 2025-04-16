@@ -22,8 +22,8 @@ const YoutubeCarrousel: React.FC<{videos: YoutubeVideoContentDetails[]}> = ({ vi
     const carrousel = carrouselRef.current;
     if (!carrousel) return;
 
-    let startX = e.pageX;
-    let scrollLeft = carrousel.scrollLeft;
+    const startX = e.pageX;
+    const scrollLeft = carrousel.scrollLeft;
 
     const onMouseMove = (moveEvent: MouseEvent) => {
       const x = moveEvent.pageX - startX;
