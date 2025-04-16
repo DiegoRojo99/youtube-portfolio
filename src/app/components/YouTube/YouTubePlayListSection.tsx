@@ -1,9 +1,9 @@
 'use client';
 import { YoutubeVideoContentDetails } from '@/app/types/YouTube';
 import React, { useEffect, useState } from 'react';
-import YoutubeVideoCard from './YoutubeVideoCard';
-import './YouTube.css';
 import ErrorWarning from '../Extras/Error';
+import YoutubeCarrousel from './YoutubeCarrousel';
+import './YouTube.css';
 
 interface YouTubePlayListSectionProps {
   playlistId: string;
@@ -57,11 +57,7 @@ const YouTubePlayListSection: React.FC<YouTubePlayListSectionProps> = ({playlist
             {title.toLocaleUpperCase()}
           </h1>
         </div>
-        <div className="playlist-scroll">
-          {videos.map((video) => (
-            <YoutubeVideoCard key={video.id} video={video} />
-          ))}
-        </div>
+        <YoutubeCarrousel videos={videos} />
       </div>
     </section>
 
