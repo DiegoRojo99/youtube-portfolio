@@ -1,6 +1,5 @@
 import Hero from "./components/Hero";
 import Layout from "./components/Layout";
-import SocialLinks from "./components/SocialLinks";
 import SocialMediaSection from "./components/SocialMedia/SocialMediaSection";
 import LatestYouTubeVideo from "./components/YouTube/LatestYouTubeVideo";
 import YouTubePlayListSection from "./components/YouTube/YouTubePlayListSection";
