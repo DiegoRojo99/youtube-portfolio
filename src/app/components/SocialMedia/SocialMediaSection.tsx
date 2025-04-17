@@ -29,7 +29,6 @@ const SocialMediaSection: React.FC = () => {
       {socialMediaData.map((media, index) => (
         <div className="social-media-content" key={`social-media-${index}`} style={{ backgroundImage: `url(${media.backgroundImage})` }}>
             <a
-              key={index}
               href={media.link}
               target="_blank"
               rel="noopener noreferrer"
