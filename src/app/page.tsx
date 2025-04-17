@@ -1,6 +1,6 @@
 import Hero from "./components/Hero";
 import Layout from "./components/Layout";
-import SocialLinks from "./components/SocialLinks";
+import SocialMediaSection from "./components/SocialMedia/SocialMediaSection";
 import LatestYouTubeVideo from "./components/YouTube/LatestYouTubeVideo";
 import YouTubePlayListSection from "./components/YouTube/YouTubePlayListSection";
 
@@ -9,7 +9,7 @@ export default function Home() {
     <Layout>
       <Hero />
       <LatestYouTubeVideo />
-      <SocialLinks />
+      <SocialMediaSection />
       <YouTubePlayListSection 
         playlistId="PLBCFzf3IR5m7y9nVXGOTKRdIbnhl_U-zf" 
         title="España Oculta" 
