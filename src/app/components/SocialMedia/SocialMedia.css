@@ -5,12 +5,6 @@
   margin: 20px;
 }
 
-.social-media-logo {
-  width: auto;
-  height: 100%;
-  margin: 0 auto;
-}
-
 .card-inner {
   position: relative;
   width: 100%;
@@ -90,7 +84,6 @@
 
 .social-media-logo-container img{
   max-width: 128px;
-  max-height: 100%;
   object-fit: contain;
   border-radius: 10px;
 }
@@ -109,8 +102,9 @@
   transition: transform 0.3s;
 }
 
-.social-media-column:hover {
-  transform: translateY(-10px);
+.social-media-logo-container img:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s;
 }
 
 .social-media-text {
@@ -147,7 +141,6 @@
   
   .social-media-logo-container img{
     max-width: 80px;
-    max-height: 100%;
     object-fit: contain;
     border-radius: 10px;
   }
@@ -179,7 +172,6 @@
   
   .social-media-logo-container img{
     max-width: 80px;
-    max-height: 100%;
     object-fit: contain;
     border-radius: 10px;
   }

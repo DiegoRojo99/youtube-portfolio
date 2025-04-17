@@ -36,9 +36,8 @@ const SocialMediaSection: React.FC = () => {
               className="social-media-column"
             >
               <div className="social-media-logo-container">
-                <Image src={media.logo} alt={`${media.name} logo`} width={50} height={50} className="social-media-logo" />
+                <Image src={media.logo} alt={`${media.name} logo`} width={100} height={100} className="social-media-logo" />
               </div>
-              <p className="social-media-text">{media.name}</p>
           </a>
         </div>
       ))}
