@@ -52,9 +52,6 @@ const YoutubeCarrousel: React.FC<{videos: YoutubeVideoContentDetails[]}> = ({ vi
         {videos.map((video) => (
           <YoutubeVideoCard key={video.id} video={video} />
         ))}
-        {videos.map((video) => (
-          <YoutubeVideoCard key={`dupe-${video.id}`} video={video} />
-        ))}
       </div>
       <button className="arrow right-arrow" onClick={scrollRight}>
         &#8250;
