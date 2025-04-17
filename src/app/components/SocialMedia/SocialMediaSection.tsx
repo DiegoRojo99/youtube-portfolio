@@ -26,8 +26,7 @@ const SocialMediaSection: React.FC = () => {
   return (
     <div className="social-media-section">
       {socialMediaData.map((media, index) => (
-        <div className="social-media-content" key={`social-media-${index}`}
-          style={{ backgroundImage: `url(${media.backgroundImage})`, backgroundSize: 'cover' }}>
+        <div className="social-media-content" key={`social-media-${index}`} style={{ backgroundImage: `url(${media.backgroundImage})` }}>
             <a
               key={index}
               href={media.link}

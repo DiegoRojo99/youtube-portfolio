@@ -75,6 +75,8 @@
   text-decoration: none;
   transition: background-position .375s;
   display: flex;
+  background-size: cover;
+  background-position: center;
 }
 
 .social-media-logo-container {
@@ -162,7 +164,7 @@
   .card-back span {
     font-size: 1.25rem;
   }
-  
+
   .card-back p {
     font-size: 1rem;
   }
