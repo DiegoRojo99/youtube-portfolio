@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import './SocialMedia.css';
 
 const SocialMediaSection: React.FC = () => {
@@ -19,7 +20,7 @@ const SocialMediaSection: React.FC = () => {
       name: 'Instagram',
       logo: '/assets/instagram-icon.png',
       backgroundImage: '/retrato-japones.jpeg',
-      link: 'https://instagram.com/smercadal',
+      link: 'https://instagram.com/santimercadal',
     },
   ];
 
@@ -35,7 +36,7 @@ const SocialMediaSection: React.FC = () => {
               className="social-media-column"
             >
               <div className="social-media-logo-container">
-                <img src={media.logo} alt={`${media.name} logo`}/>
+                <Image src={media.logo} alt={`${media.name} logo`} width={50} height={50} className="social-media-logo" />
               </div>
               <p className="social-media-text">{media.name}</p>
           </a>
