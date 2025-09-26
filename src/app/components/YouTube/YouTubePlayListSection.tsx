@@ -11,6 +11,17 @@ interface YouTubePlayListSectionProps {
   imageUrl: string;
   textColor: string;
 }
+
+function publicVideoCheck(video: YoutubeVideoContentDetails): boolean {
+  // Check if the video is public by verifying the presence of snippet and title
+  if (!video?.snippet) return false;
+  if (!video.snippet.thumbnails) return false;
+  if (Object.keys(video.snippet.thumbnails).length === 0) return false;
+  if (!video.snippet.title) return false;
+  if (video.snippet.title === 'Private Video') return false;
+  return true;
+}
+
 const YouTubePlayListSection: React.FC<YouTubePlayListSectionProps> = ({playlistId, title, imageUrl, textColor}) => {
   const [videos, setVideos] = useState<YoutubeVideoContentDetails[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -44,6 +55,11 @@ const YouTubePlayListSection: React.FC<YouTubePlayListSectionProps> = ({playlist
 
   if (loading) return <p>Loading...</p>;
   if (error) return <ErrorWarning title={error ?? "Test error"} />;
+  if (videos.length === 0) return <></>;
+  
+  // Filter out videos without a snippet or title or thumbnails
+  const publicVideos = videos.filter(publicVideoCheck);
+  if (publicVideos.length === 0) return <></>;
 
   return (
     <section
@@ -57,10 +73,9 @@ const YouTubePlayListSection: React.FC<YouTubePlayListSectionProps> = ({playlist
             {title.toLocaleUpperCase()}
           </h1>
         </div>
-        <YoutubeCarrousel videos={videos} />
+        <YoutubeCarrousel videos={publicVideos} />
       </div>
     </section>
-
   );
 };
 

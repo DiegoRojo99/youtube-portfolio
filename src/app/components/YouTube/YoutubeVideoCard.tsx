@@ -8,6 +8,16 @@ interface Props {
 export default function YoutubeVideoCard({ video }: Props) {
   if (!video?.snippet) return <></>;
 
+  const thumbnails = video.snippet.thumbnails;
+  if (!Object.keys(thumbnails).length) return <></>;
+
+  const thumbnail =
+    thumbnails.maxres ||
+    thumbnails.high ||
+    thumbnails.medium ||
+    thumbnails.default;
+  if (!thumbnail) return <></>;
+
   return (
     <div className="w-72 flex-shrink-0 cursor-pointer transition-transform duration-300 group">
       <a
@@ -18,22 +28,10 @@ export default function YoutubeVideoCard({ video }: Props) {
       >
         <div className="relative">
           <Image
-            src={
-              video.snippet.thumbnails.maxres
-                ? video.snippet.thumbnails.maxres.url
-                : video.snippet.thumbnails.high.url
-            }
+            src={thumbnail.url}
             alt={video.snippet.title}
-            width={
-              video.snippet.thumbnails.maxres
-                ? video.snippet.thumbnails.maxres.width
-                : video.snippet.thumbnails.high.width
-            }
-            height={
-              video.snippet.thumbnails.maxres
-                ? video.snippet.thumbnails.maxres.height
-                : video.snippet.thumbnails.high.height
-            }
+            width={thumbnail.width}
+            height={thumbnail.height}
             className="rounded-lg w-full object-cover"
           />
         </div>
