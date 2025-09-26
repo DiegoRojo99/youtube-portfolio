@@ -12,9 +12,7 @@ const YouTubeThumbnailPlayer: React.FC<{ video: YoutubeVideoContentDetails }> = 
     return () => clearTimeout(timer);
   }, []);
 
-  if (isLoading) {
-    return <MonaLisa />;
-  }
+  if (isLoading) return <MonaLisa />;
   return (
     <div className="video-player">
       <iframe
